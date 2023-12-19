@@ -79,7 +79,7 @@ const Navbar = () => {
             ))}
             <Link
               className="block  text-white rounded hover:opacity-90 text-lg  font-thin px-4 py-2 bg-brandPrimary cursor-pointer"
-              to="/"
+              to="/result"
             >
             Check Result
             </Link>

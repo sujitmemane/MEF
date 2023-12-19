@@ -10,6 +10,9 @@ import Footer from './components/Footer'
 
 import ContactPage from './pages/ContactPage'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
 
@@ -24,6 +27,7 @@ function App() {
         <Route path='/contact' element={<ContactPage/>}/>
       </Routes>
       <Footer/>
+      <ToastContainer />
      </BrowserRouter>
     </>
   )
