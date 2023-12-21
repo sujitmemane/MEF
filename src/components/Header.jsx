@@ -10,11 +10,13 @@ export const Header = () => {
                 </p>
               </div>
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              Modern Education Foundation Aurangabad
+              Modern Education Foundation Aurangabad <br />
+              <span className="text-sm text-gray-900 font-extrathin ">Pune-Aurangabad-Hingoli-Akola-Mumbai</span> 
+
               </h2>
               <p className="text-base font-thin md:text-lg">
                 Join MEF and skyrocket your professional journey.
-              All types of ITI, Dip, Degree and Management courses
+              All types of ITI, Diploma, Degree and Management courses
               </p>
             </div>
             <div className="flex flex-col items-center md:flex-row">

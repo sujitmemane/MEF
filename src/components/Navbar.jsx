@@ -62,8 +62,9 @@ const Navbar = () => {
             <img src={Logo} alt="Logo" className="w-16 " />
             <Link to="/" >
 
-            <h1 className="text-lg font-normal uppercase">
-                MEF Aurangabad
+            <h1 className="text-lg font-normal  flex flex-col space-y-1 items-center">
+                <span className="font-bold uppercase">MEF Aurangabad  </span> 
+               <span className="text-sm text-gray-600 ">Pune-Aurangabad-Hingoli-Akola-Mumbai</span> 
             </h1>
             </Link>
             </div>
