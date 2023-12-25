@@ -8,7 +8,7 @@ const NAV_DATA = [
   {
     id: 1,
     name: "Home",
-    path: "/",
+    path: "http://mef.org.in/",
   },
   {
     id: 3,
@@ -60,13 +60,13 @@ const Navbar = () => {
         <div className="flex justify-between items-center text-base gap-8">
             <div className="flex items-center space-x-2">
             <img src={Logo} alt="Logo" className="w-16 " />
-            <Link to="/" >
+            <a href="http://mef.org.in/">
 
             <h1 className="text-lg font-normal  flex flex-col space-y-1 items-center">
                 <span className="font-bold uppercase">MEF Aurangabad  </span> 
                <span className="text-sm text-gray-600 ">Pune-Aurangabad-Hingoli-Akola-Mumbai</span> 
             </h1>
-            </Link>
+            </a>
             </div>
        
           <ul className="md:flex items-center hidden space-x-12">
