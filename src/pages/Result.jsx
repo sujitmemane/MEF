@@ -34,9 +34,7 @@ const Result = () => {
       const result = await response.json();
       setResultData(result?.data);
       console.log(resultData)
-      if(resultData===null){
-        toast.error("Invalid Credentials")
-      }
+    
       setShowTable(true);
     } catch (error) {
       toast.error(error?.message);
@@ -46,7 +44,7 @@ const Result = () => {
   };
 
   useEffect(()=>{
-     if(resultData===null){
+   if(resultData===null){
         toast.error("Invalid Credentials")
       }
     reset()
