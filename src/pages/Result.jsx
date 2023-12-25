@@ -44,9 +44,7 @@ const Result = () => {
   };
 
   useEffect(()=>{
-   if(resultData===null){
-        toast.error("Invalid Credentials")
-      }
+  
     reset()
   },[isSubmitSuccessful])
 
