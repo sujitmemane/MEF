@@ -33,6 +33,9 @@ const Result = () => {
 
       const result = await response.json();
       setResultData(result?.data);
+      if(resultData){
+        toast.error("Invalid Credentials")
+      }
       setShowTable(true);
     } catch (error) {
       toast.error(error?.message);
