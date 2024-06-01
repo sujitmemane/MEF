@@ -7,34 +7,38 @@ import { toast } from "react-toastify";
 const Result = () => {
   const [resultData, setResultData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [showTable, setShowTable] = useState(false); 
+  const [showTable, setShowTable] = useState(false);
 
   const {
     register,
-    reset,getValues,
-    handleSubmit,setValue,
-    formState: { isSubmitting,errors,isSubmitSuccessful},
+    reset,
+    getValues,
+    handleSubmit,
+    setValue,
+    formState: { isSubmitting, errors, isSubmitSuccessful },
   } = useForm();
 
   const onSubmit = async (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       Object.keys(data).forEach((key) => {
         setValue(key, data[key].trim());
       });
-  
-      const response = await fetch("https://mefadmin.onrender.com/api/fetch", {
-        method: "POST",
-        body: JSON.stringify(getValues()),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+
+      const response = await fetch(
+        "https://api.scholarsquestolympiad.org/api/v1/mef/fetch",
+        {
+          method: "POST",
+          body: JSON.stringify(getValues()),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const result = await response.json();
       setResultData(result?.data);
       if (!result?.data) {
-       
         toast.error("Invalid credentials");
       } else {
         setShowTable(true);
@@ -46,10 +50,9 @@ const Result = () => {
     }
   };
 
-  useEffect(()=>{
-  
-    reset()
-  },[isSubmitSuccessful])
+  useEffect(() => {
+    reset();
+  }, [isSubmitSuccessful]);
 
   return (
     <div className="w-full h-screen py-28 flex flex-col items-center ">
@@ -66,11 +69,13 @@ const Result = () => {
                 required: {
                   value: true,
                   message: "Please Enter a Registration Number",
-                  trim:true
+                  trim: true,
                 },
               })}
             />
-            <p className="text-red-400 text-xs my-2">{errors?.regnum?.message}</p>
+            <p className="text-red-400 text-xs my-2">
+              {errors?.regnum?.message}
+            </p>
           </div>
 
           <div className="mb-4">
@@ -84,12 +89,13 @@ const Result = () => {
                 required: {
                   value: true,
                   message: "Please Enter Mother Name",
-                  trim:true
+                  trim: true,
                 },
               })}
             />
-                        <p className="text-red-400 text-xs my-2">{errors?.mothername?.message}</p>
-
+            <p className="text-red-400 text-xs my-2">
+              {errors?.mothername?.message}
+            </p>
           </div>
 
           <button
@@ -101,8 +107,8 @@ const Result = () => {
         </form>
       </div>
 
-
-     { showTable &&  <div className="container mx-auto mt-8 overflow-x-auto">
+      {showTable && (
+        <div className="container mx-auto mt-8 overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
               <tr className="bg-gray-200">
@@ -144,10 +150,10 @@ const Result = () => {
                   {resultData?.mothername || "No Data"}
                 </td>
                 <td className="border border-gray-300 px-4 py-2 sm:px-6 sm:py-3 md:py-4 lg:py-5 xl:py-6">
-                  {resultData?.dob || "No Data" }
+                  {resultData?.dob || "No Data"}
                 </td>
                 <td className="border border-gray-300 px-4 py-2 sm:px-6 sm:py-3 md:py-4 lg:py-5 xl:py-6">
-                  {resultData?.regnum || "No Data" }
+                  {resultData?.regnum || "No Data"}
                 </td>
                 <td className="border border-gray-300 px-4 py-2 sm:px-6 sm:py-3 md:py-4 lg:py-5 xl:py-6">
                   {resultData?.course || "No Data"}
@@ -161,8 +167,8 @@ const Result = () => {
               </tr>
             </tbody>
           </table>
-        </div>}
- 
+        </div>
+      )}
 
       {isLoading && (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 opacity-75 flex items-center justify-center z-50">
