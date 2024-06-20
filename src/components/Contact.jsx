@@ -20,7 +20,7 @@ export default () => {
   const onSubmit = async (data) => {
     try {
       const response = await fetch(
-        "https://mefadmin.onrender.com/api/inquiry/new",
+        "https://api.scholarsquestolympiad.org/api/v1/mef/inquiry/new",
         {
           method: "POST",
           body: JSON.stringify(data),
@@ -95,7 +95,7 @@ export default () => {
                 },
               })}
             />
-             <p className="text-red-400 text-xs">{errors?.email?.message}</p>
+            <p className="text-red-400 text-xs">{errors?.email?.message}</p>
             <TextField
               type="text"
               className="w-1/2"
@@ -110,7 +110,7 @@ export default () => {
                 },
               })}
             />
- <p className="text-red-400 text-xs">{errors?.subject?.message}</p>
+            <p className="text-red-400 text-xs">{errors?.subject?.message}</p>
             <div>
               <Textarea
                 color="neutral"
@@ -125,7 +125,7 @@ export default () => {
                   },
                 })}
               />
-               <p className="text-red-400 text-xs">{errors?.message?.message}</p>
+              <p className="text-red-400 text-xs">{errors?.message?.message}</p>
             </div>
             <button
               disabled={isSubmitting}

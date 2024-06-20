@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "../assets/logo.webp"
+import Logo from "../assets/logo.webp";
 
 const NAV_DATA = [
   {
     id: 1,
     name: "Home",
-    path: "http://mef.org.in/",
+    path: "/",
   },
   {
     id: 3,
     name: "About",
     path: "/about",
   },
-  
+
   {
     id: 6,
     name: "Contact",
@@ -58,21 +58,23 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
-            <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
             <img src={Logo} alt="Logo" className="w-16 " />
             <a href="http://mef.org.in/">
-
-            <h1 className="text-lg font-normal  flex flex-col space-y-1 items-center">
-                <span className="font-bold uppercase">MEF Aurangabad  </span> 
-               <span className="text-sm text-gray-600 ">Pune-Aurangabad-Hingoli-Akola-Mumbai</span> 
-            </h1>
+              <h1 className="text-lg font-normal  flex flex-col space-y-1 items-center">
+                <span className="font-bold uppercase">MEF Aurangabad </span>
+                <span className="text-sm text-gray-600 ">
+                  Pune-Aurangabad-Hingoli-Akola-Mumbai
+                </span>
+              </h1>
             </a>
-            </div>
-       
+          </div>
+
           <ul className="md:flex items-center hidden space-x-12">
             {NAV_DATA.map(({ name, path, id }) => (
               <NavLink
-              to={path}
+                to={path}
+                onClick={() => setIsMenuOpen(false)}
                 className="block  text-gray-900 text-xl font-medium hover:text-brandPrimary cursor-pointer font-thin"
               >
                 {name}
@@ -81,8 +83,9 @@ const Navbar = () => {
             <Link
               className="block  text-white rounded hover:opacity-90 text-lg  font-thin px-4 py-2 bg-brandPrimary cursor-pointer"
               to="/result"
+              onClick={() => setIsMenuOpen(false)}
             >
-            Check Result
+              Check Result
             </Link>
           </ul>
           <div className="md:hidden text-neutralDGray focus:outline-none focus:text-gray-500">
@@ -100,17 +103,19 @@ const Navbar = () => {
             isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"
           }`}
         >
-         {NAV_DATA.map(({ name, path, id }) => (
-              <NavLink
+          {NAV_DATA.map(({ name, path, id }) => (
+            <NavLink
               to={path}
-                className="block  text-white text-xl font-medium cursor-pointer font-thin"
-              >
-                {name}
-              </NavLink>
-            ))}
+              className="block  text-white text-xl font-medium cursor-pointer font-thin"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {name}
+            </NavLink>
+          ))}
           <Link
-                className="block  text-white text-xl font-medium cursor-pointer font-thin"
-                to="/"
+            className="block  text-white text-xl font-medium cursor-pointer font-thin"
+            to="/result"
+            onClick={() => setIsMenuOpen(false)}
           >
             Check Result
           </Link>
